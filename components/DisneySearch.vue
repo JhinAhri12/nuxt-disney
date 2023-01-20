@@ -28,7 +28,6 @@
 
     function onSubmit ()
     {
-        console.log(page)
        page.value = name;
        refresh();
     }
