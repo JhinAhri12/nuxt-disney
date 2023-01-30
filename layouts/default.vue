@@ -10,6 +10,7 @@
             </ul>
         </nav>
         </header>
+        <UserCard/>
        <!-- layout -->
         <div class="container">
             <slot />  

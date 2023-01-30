@@ -9,5 +9,10 @@
   },
   "devDependencies": {
     "nuxt": "^3.0.0"
+  },
+  "dependencies": {
+    "@nuxtjs/dotenv": "^1.4.1",
+    "@nuxtjs/supabase": "^0.3.0",
+    "@vueuse/nuxt": "^9.12.0"
   }
 }
