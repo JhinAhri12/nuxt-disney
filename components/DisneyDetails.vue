@@ -12,6 +12,19 @@
 <script setup>
   const { disney } = defineProps(['disney'])
 
-  const addToFavorite = await useFetch(() => `https://api.disneyapi.dev/character?name=${page.value}`)
+ const addToFavorite = computed( () => {
+
+  try {
+        await $fetch(
+          `/api/disney/favorite`,
+          {
+            method: 'POST'
+          }
+        );
+      } catch (error) {
+        console.error(error);
+      }
+
+
 
 </script>

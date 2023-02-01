@@ -8,8 +8,9 @@ async function main() {
 
         data: {
     
-          name: 'Alice'
-    
+          name: 'Alice',
+          userId: 1,
+            
         },
     
       })
