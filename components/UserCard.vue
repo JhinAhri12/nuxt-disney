@@ -42,7 +42,7 @@
     await navigateTo('/login');
   };
   const name = computed(
-    () => user.value?.user_metadata.full_name
+    () => user.value?.email
   );
   const profile = computed(
     () => user.value?.user_metadata.avatar_url
