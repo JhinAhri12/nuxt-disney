@@ -10,21 +10,24 @@
   </template>
 
 <script setup>
+import { useFavoriteStore } from '~/stores/disneyFavorite.ts';
+import { Favorite } from '@prisma/client';
+
+  const favoriteStore = useFavoriteStore();
   const { disney } = defineProps(['disney'])
 
- const addToFavorite = computed( () => {
+  function addToFavorite() {
+    funcFavorite();
+  }
 
-  try {
-        await $fetch(
-          `/api/disney/favorite`,
-          {
-            method: 'POST'
-          }
-        );
-      } catch (error) {
-        console.error(error);
-      }
+async function funcFavorite() {
 
+    const { favorite } = await  await $fetch(`/api/disney/favorite/`, {
+        method: 'POST',
+        body: { event: 'ADD_FAVORITE', 'postName': disney.name, 'postUserId': 1 },
 
-
+      })
+  
+ }
+ 
 </script>

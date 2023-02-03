@@ -2,16 +2,23 @@ import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient();
 
-async function main() {
+export default defineEventHandler(async (event) => {
+  // Only allow GET requests
+  assertMethod(event, ['GET','POST']);
+  const body = await readBody(event)
+ 
+  const favorite = await prisma.favorite.create({
+    data: {
+      name: body.postName,
+      userId: body.postUserId,
+    },
+  })
 
-    await prisma.favorite.create({
-
-        data: {
+  if(!favorite){
+    throw createError({
+      statusCode :404, 
+      statusMessage : 'Favorite not created'});
     
-          name: 'Mickey',
-          users: 1,
-            
-        },
-      
-      })
-}
+  }
+  return favorite;
+})
